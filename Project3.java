@@ -29,6 +29,7 @@ class SubstitutionCipher implements MessageEncoder, MessageDecoder {
 			char c = text.charAt(i);
 			c = shift('A','Z',c,key);
 			c = shift('a','z',c,key);
+			c = shift('0','9',c,key);
 			result += c;
 		}
 		return result;
