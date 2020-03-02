@@ -43,8 +43,33 @@ class SubstitutionCipher implements MessageEncoder, MessageDecoder {
 }
 
 class ShuffleCipher implements MessageEncoder, MessageDecoder {
+	private int key;
+	public ShuffleCipher(int key) {
+		this.key = key;
+	}
+	private String encodeIteration(String plaintext, int pivot) {
+		String left = plaintext.substring(0,pivot);
+		String right = plaintext.substring(pivot);
+		String result = "";
+		int shorter = left.length()<right.length()?left.length():right.length();
+		for (int i=0; i<shorter; i++) {
+			result += right.substring(0,1);
+			right  =  right.substring(1);
+			result += left.substring(0,1);
+			left   =  left.substring(1);
+		}
+		return result;
+	}
 	public String encode(String plaintext) {
-		return "";
+		String result = plaintext;
+		for (int i = 0; i < key; i++) {
+			int pivot = result.length() / 2;
+			if (result.length() % 2 == 1 && i % 2 == 1) {
+				pivot += 1;
+			}
+			result = encodeIteration(result, pivot);
+		}
+		return result;
 	}
 	public String decode(String ciphertext) {
 		return "";
@@ -53,7 +78,7 @@ class ShuffleCipher implements MessageEncoder, MessageDecoder {
 
 class Project3 {
 	public static void main(String[] args) {
-		SubstitutionCipher cipher = new SubstitutionCipher(7);
-		System.out.println(cipher.decode("Olssv evysk!"));
+		ShuffleCipher cipher = new ShuffleCipher(1);
+		System.out.println(cipher.encode("abcdefghijklmnopqrstuvwxyz"));
 	}
 }
