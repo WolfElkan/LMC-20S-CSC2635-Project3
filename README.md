@@ -1,7 +1,6 @@
-[**Wolf Elkan**](https://github.com/WolfElkan), [**Clarke Geagan**](https://github.com/clarke7)
+[**Wolf Elkan**](https://github.com/WolfElkan), [**Clarke Geagan**](https://github.com/clarke7)  
 CSC2635-A  
-Landmark College  
-2020-03-02
+Landmark College
 
 # Project 3: Interfaces
 
@@ -17,7 +16,7 @@ This project will be designed with the goal of being intuitive enough for the us
 
 ## Summary Questions
 
-Here are my answers to the Summary Questions provided in the file `Project 3 - Interfaces.docx` which accompanied the assignment.
+Here are our answers to the Summary Questions provided in the file `Project 3 - Interfaces.docx` which accompanied the assignment.
 
 ### Explain the difference between an interface and an abstract class.  
 ### Why couldn’t MessageEncoder and MessageDecoder have been abstract classes instead of interfaces?
